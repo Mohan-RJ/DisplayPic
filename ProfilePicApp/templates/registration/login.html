@@ -1,0 +1,38 @@
+{% extends "base/non-angular-base.html" %}
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade in" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  Your username and password didn't match. Please try again.
+</div>
+{% endif %}
+{% if user.is_authenticated %}
+    <div class="form-signin w">
+      <div class="alert alert-success" role="alert">
+      You are already Logged in.
+      </div>
+      <a href="/home"><button class="btn btn-lg btn-info btn-block" type="button" value="Home"><i class="fa fa-home"></i>&nbsp;Home</button></a>
+    </div>
+{% else %}
+<div class="row cent w"><h2>Have an account ? Log in</h2></div>
+<br>
+<br>
+<form class="form-signin" method="post" action="/login/" name="LoginForm">{% csrf_token %}
+    <h2 class="form-signin-heading w"><i class="fa fa-key"></i>&nbsp;Please sign in</h2>
+    <input type="text" id="username" class="form-control" name="username" placeholder="Username" autofocus>
+    <input type="password" id="password" class="form-control" name="password" placeholder="Password" required>
+    <br>
+    <div class="checkbox w">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+	</div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" id="login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</button>
+    <input type="hidden" name="next" value="/home" /><br>
+    <a href="/"><button type="button" class="btn btn-lg btn-danger btn-block"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;Register</button></a>
+</form>
+{% endif %}
+{% endblock %}

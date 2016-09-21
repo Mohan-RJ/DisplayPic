@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+	<div class="form-signin w">
+      <div class="alert alert-info" role="alert">
+		You are already Logged in.
+	  </div>
+      
+      <a href="/home"><button class="btn btn-lg btn-success btn-block" type="button" value="Home"><i class="fa fa-home"></i>&nbsp;Home</button></a>
+    </div>
+{% else %}
+<div ng-controller="registerController">
+	<div class="row cent w"><h3>Not yet registered ? Sign up below. Its free <i class="fa fa-smile-o"></i></h3></div>
+	<br>
+	<form class="form-signin" method="POST" name="RegisterForm">{% csrf_token %}
+		<h4 class="form-signin-heading w"><i class="fa fa-wpforms"></i>&nbsp;Registration</h4>
+		<input type="text" id="username" ng-model="username" class="form-control" name="username" placeholder="Username" required autofocus>
+		<input type="email" id="email" ng-model="email" class="form-control" name="email" placeholder="Email Address" required>
+		<input type="password" id="password" ng-model="password" class="form-control" name="password" placeholder="Password" required>
+		<br>
+		<div class="checkbox">
+			<label class="w">
+				<input type="checkbox" value="remember-me"> Remember me
+			</label>
+		</div>
+		<button class="btn btn-lg btn-danger btn-block" ng-click="registerclick()" ng-disabled="RegisterForm.$invalid" type="submit"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;Register</button>
+		<br>
+		<a href="/loginpage"><button type="button" class="btn btn-lg btn-primary btn-block"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</button></a>
+	</form>
+</div>
+{% endif %}
+{% endblock %}

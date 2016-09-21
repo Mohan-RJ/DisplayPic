@@ -1,0 +1,24 @@
+{% extends "base/nav.html" %}
+{% block content %}
+<div class="row cent"><h3>Hi {{ getpic.username }}. Upload your profile picture below.</h3></div>
+<br><br>
+<div class="col-md-6">
+<br><br>
+	<div class="form-signin">
+	<form name="PicUploadForm" method="POST" action="/photoupload/" enctype="multipart/form-data">{% csrf_token %}
+		<input type="file" class="form-control" name="file"><br>
+		<br>
+		<button class="btn btn-block btn-lg btn-primary" name="submit" type="submit"><i class="fa fa-upload"></i>&nbsp;&nbsp;Upload</button>
+	</form>
+	<br>
+
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="form-signin">
+		<img src="{{STATIC_URL}}/static/{{ getpic.profilepic }}" alt="{{ getpic.username }}" class="img-thumbnail">
+		<br>
+		<h4 class="cent">{{ getpic.username }}</h4>
+	</div>
+</div>
+{% endblock %}

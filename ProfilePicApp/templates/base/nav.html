@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app="ProfilePic">
+<head>
+	<title>Welcome to Profile pic upload app</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/toolkit.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/jquery.dataTables.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/toastr.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+</head>
+<body>
+<nav class="ck pc os app-navbar">
+  <div class="by">
+    <div class="or">
+      <button type="button" class="ou collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
+        <span class="cv">Toggle navigation</span>
+        <span class="ov"></span>
+        <span class="ov"></span>
+        <span class="ov"></span>
+      </button>
+      <a class="e" href="/home"><i class="fa fa-camera"></i>&nbsp;ProfilePic App</a>
+    </div>
+    <div class="f collapse" id="navbar-collapse-main">
+
+        <ul class="nav navbar-nav ss">
+          <li>
+            <a href="/home"><i class="fa fa-home"></i>&nbsp;Home</a>
+          </li>
+          <li>
+            <a href="/dashboard"><i class="fa fa-dashboard"></i>&nbsp;Dashboard</a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav og ale ss">
+          <li>
+            <a href="/logout"><strong><i class="fa fa-power-off"></i>&nbsp;Logout</strong></a>
+          </li>
+        </ul>
+
+        
+      </div>
+  </div>
+</nav>
+	<div class="top-margin-adjust"></div>
+	<div class="container">
+		{% block content %}{% endblock %}
+	</div>
+  
+	<script src="{% static "js/jquery.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+  <script src="{% static "js/jquery.dataTables.min.js" %}"></script>
+	<script src="{% static "js/angular.min.js" %}"></script>
+	<script src="{% static "js/angular-route.min.js" %}"></script>
+  <script src="{% static "js/ng-file-upload.js" %}"></script>
+	<script src="{% static "js/app.js" %}"></script>
+	<script src="{% static "js/services.js" %}"></script>
+	<script src="{% static "js/controller.js" %}"></script>
+	<script src="{% static "js/toastr.min.js" %}"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#user-list').DataTable();
+		} );
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "base/nav.html" %}
+{% block content %}
+<h3>List of registered users.</h3>
+<br>
+<table class="table table-hover table-bordered tb-brad" id="user-list">
+  <thead class="bg-inverse">
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Date Joined</th>
+      <th>Last Login</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in reg_users %}
+    <tr class="">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.username}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.date_joined}}</td>
+      <td>{{item.last_login}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

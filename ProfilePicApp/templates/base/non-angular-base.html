@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to Profile pic upload app</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+</head>
+<body>
+<div class="log_bg">
+<div id="log_bg">
+</div>
+</div>
+	<div class="top-margin-adjust"></div>
+	<div class="container">
+		{% block content %}{% endblock %}
+	</div>
+
+	<script src="{% static "js/jquery.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+</body>
+</html>
